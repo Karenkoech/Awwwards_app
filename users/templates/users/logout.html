@@ -5,18 +5,19 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <h2>You Have Been Logged Out!</h2> <br/>
-            <form action="" method="POST">
+            <div class="content-section">
+                <h2>You Have Been Logged Out!</h2> <br/>
+            <form action="" method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">Awwwards |Sign in</legend>
                     {{ form|crispy }}
                 </fieldset>
                 <div class="form-group">
-                    <a class="btn btn-outline-info" type="submit" href="{% url 'login' %}" >Log in Again</a>
+                    <a class="btn btn-outline-dark" type="submit" href="{% url 'login' %}" >Log in Again</a>
                 </div>
-            </form>
-        
+            </form>  
+        </div> 
     </div>
 </div>
 <div class="col-md-4"></div>
