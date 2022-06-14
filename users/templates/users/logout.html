@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>You Have Been Logged Out!</h2> <br/>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Awwwards |Sign in</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <a class="btn btn-outline-info" type="submit" href="{% url 'login' %}" >Log in Again</a>
+                </div>
+            </form>
+        
+    </div>
+</div>
+<div class="col-md-4"></div>
+{% endblock %}
