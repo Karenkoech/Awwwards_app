@@ -1,0 +1,196 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<section class="hero">
+  <div class="d-flex justify-content-between border-white px-5 py-5">
+    <a class="text-white" href="#"
+      ><strong>Site of the Day</strong> June 13, 2022</a
+    >
+    <span class="rounded"
+      ><i class="text-white fas fa-share-alt fa-2x"></i
+    ></span>
+  </div>
+  <div
+    class="text-white d-flex justify-content-center align-items-center flex-column"
+  >
+    <h1 class="font-weight-bold text-center">
+      Santa Teresa
+    </h1>
+    <p>
+      BY <span class="blue">LG2</span> FROM
+      <strong class="blue">CANADA</strong> WITH
+      <strong>7.46</strong>
+    </p>
+    <div class="d-flex justify-content-between hero-progress">
+      <div class="progress mx-1" data-value="80">
+        <span class="progress-left">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <span class="progress-right">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <div
+          class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+        >
+          <div class="h2 font-weight-bold">
+            7.<sub class="small">47</sub>
+          </div>
+        </div>
+      </div>
+      <div class="progress mx-1" data-value="80">
+        <span class="progress-left">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <span class="progress-right">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <div
+          class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+        >
+          <div class="h2 font-weight-bold">
+            7.<sub class="small">07</sub>
+          </div>
+        </div>
+      </div>
+      <div class="progress mx-1" data-value="80">
+        <span class="progress-left">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <span class="progress-right">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <div
+          class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+        >
+          <div class="h2 font-weight-bold">
+            7.<sub class="small">99</sub>
+          </div>
+        </div>
+      </div>
+      <div class="progress mx-1" data-value="80">
+        <span class="progress-left">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <span class="progress-right">
+          <span class="progress-bar border-primary"></span>
+        </span>
+        <div
+          class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+        >
+          <div class="h2 font-weight-bold">
+            7.<sub class="small">48</sub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex hero-lowest justify-content-between  px-5 py-5">
+    <div class="d-flex">
+      <button class="mx-2 green"><a href="{% url 'my_profile'%}">Visit Site</a></button>
+      <button>Collect</button>
+    </div>
+    &nbsp;
+    <div class="d-flex">
+      <button class="">Jury votes</button>
+      <div class="mx-1 cir"></div>
+      <div class="mx-1 cir"></div>
+      <div class="mx-1 cir"></div>
+      <div class="mx-1 cir"></div>
+      <div class="mx-1 cir"></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-md-5 py-3">
+  <div class="d-flex justify-content-between px-5 py-1">
+    <p>
+      <strong>Directory</strong> Find the Best Digital Agencies &
+      Professionals
+    </p>
+    <p>
+      <strong>3,189</strong> Digital Agencies &nbsp;
+      <button class="bttn">Join the club!</button>
+    </p>
+  </div>
+  <div class="bg-projects">
+    <div class="container" >
+    <div class="row project-row">
+        {% if projects %}
+    
+            {% for project in projects %}
+            <div class="col-md-4"> <br/>
+            <div class="card" style="width: 18rem;">
+                <img src="{{ project.image.url }}" class="card-img-top" alt="Project image">
+                <div class="card-body">
+                    <div class="project-owner-display">
+                        <img src="{{ project.user.profile.profile_pic.url }}" alt="profile picture" class="rounded-circle custom-display border border-danger" style="max-width: 200px;max-height: 100px;background-repeat: no-repeat;">
+                        <p class="ml-2">Uploaded by: {{ project.user.username }}</p>
+                    </div>
+                    <p class="card-text">Project Name: {{ project.title }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'rate_project' project.id %}"><button id="button-rate" class="btn btn-outline-dark">View & Rate</button></a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+    
+        {% endif %}
+    </div>
+    </div>
+    </div>
+
+   
+</section>
+<section class="my-3 py-5">
+  <div class="mx-5 d-flex justify-content-between">
+    <p>The awards for design, creativity and innovation on the Internet</p>
+    <p>
+      Next Conferences <i class="far fa-calendar-alt"></i>
+      <strong><ins> New York</ins></strong> and
+      <strong><ins>Tokyo</ins></strong>
+    </p>
+  </div>
+  <div class="d-flex mx-5">
+    <p class="">
+      <strong>Directory</strong><span class="badge badge-warning">3</span>
+    </p>
+    <p class="mx-1">
+      <strong>Jobs</strong><span class="badge badge-info">5</span>
+    </p>
+    <p class="mx-1">
+      <strong>About Us</strong>
+    </p>
+    <p class="mx-1">
+      <strong>Winners</strong>
+    </p>
+    <p class="mx-1">
+      <strong>Nominees</strong>
+    </p>
+    <p class="mx-1">
+      <strong>Blog</strong>
+    </p>
+  </div>
+  <div class="d-flex mx-5">
+    <p><strong>Follow us</strong></p>
+    <a class="mx-1" href="">Twitter</a>
+    <a class="mx-1" href="">Facebook</a>
+    <a class="mx-1" href="">Youtube</a>
+  </div>
+</section>
+<footer class="mx-5 d-flex justify-content-between">
+  <div>
+    <a href="">Contact Us</a>
+    <a class="mx-1" href="">F.A.Q</a>
+    <a class="mx-1" href="">Cookies Policy</a>
+    <a class="mx-1" href="">Legal Terms</a>
+    <a class="mx-1" href="">Privacy Policy</a>
+    <a class="mx-1" href="">English</a>
+  </div>
+  <div>
+    <p>Private Cloud by <strong>Stackscale</strong></p>
+  </div>
+</footer>
+
+
+{% endblock %}
