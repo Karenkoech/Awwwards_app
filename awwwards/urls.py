@@ -31,7 +31,7 @@ urlpatterns = [
     
     path('api/projects/$', views.ProjectList.as_view(),name="all_projects_api"),
     path('api/profiles/$',views.ProfileList.as_view(),name="all_profiles_api"),
-    path('ajax/rate/(?P<pk>\d+)',views.AjaxRating,name="ajaxrating"),
+    path('ajax/rate/<int:pk>/$',views.AjaxRating,name="ajaxrating"),
     path('', include('myapp.urls')),
 ]
 
